@@ -1,0 +1,13 @@
+file_format: "1"
+id: tbk 
+name: TBK
+type: shield
+url: https://github.com/Bastardkb/Charybdis/
+requires: [pro_micro]
+features:
+  - Keys
+  - QWERTY
+  - Bluetooth/USB
+siblings:
+  - tbk_left
+  - tbk_right
