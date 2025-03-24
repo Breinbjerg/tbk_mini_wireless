@@ -1,4 +1,4 @@
-#include "charybdis.dtsi"
+#include "tbk.dtsi"
 
 
 &kscan0 {
