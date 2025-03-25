@@ -7,21 +7,27 @@
 
 ## Building 
 
-Using the template provided by ZMK (Link here), github actions is included from the get to. 
-If you want to build locally I've created a simple bash script to prompt and use ZMK container for easy environment setup and usage. 
+- Using ZMKs container to quick and painless setup.
 
-### Local building setup guide. 
-
-NOTE! `not done`
-1. Use the docker_shell.sh bash script 
+1. Install podman on your host system. For ubuntu it can be done like this
 ```
-./docker_shell west <command>
+     sudo apt install podman
 ```
-The script will bind this repo as ZMK module and set the config folder as config for the ZMK environment. 
 
+2. Run the `build_keyboard_local.sh` script. 
+```
+    ./scripts/build_keyboard_local.sh
+```
+- Above script will download Image, start container and build this keyboard. All build files will be placed in a new folder `build`
+- It'll also create a secret file, saving the container ID, so when building again it'll be a bit faster. If you need to rebuild the container simply delete the file `.zmk_container_id`
+
+*IMPORTANT* 
+Due to laziness, the build script does not handle being sourced from different locations in the filesystem. Please source the script from the repository root folder as shown in `step 2`.
 
 ## Creating the layout 
 
 https://zmk-physical-layout-converter.streamlit.app/ <- Physical layout converter. Convert from json format, which is used in QMK and maybe others that i'm not aware of. 
+
 https://nickcoutsos.github.io/keymap-layout-tools/ <- Text rendering tool 
+
 https://nickcoutsos.github.io/keymap-layout-tools/ <- keymap layout editor. Input is json file and current keymap file to further edit. 
