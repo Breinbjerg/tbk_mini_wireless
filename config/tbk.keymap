@@ -31,10 +31,10 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             hold-trigger-key-positions = <17 29 28 27 26 25 24 12 13 0 1 2 4 3 5 30 18 7 6 19 31 32 20 8 9 21 33 34 22 10 23 11 35 41 40 39 38 37 36>;
             flavor = "tap-preferred";
-            quick-tap-ms = <180>;
+            quick-tap-ms = <200>;
         };
 
         hm_mod_right: hm_mod_right {
@@ -43,10 +43,96 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             flavor = "tap-preferred";
             hold-trigger-key-positions = <29 17 5 4 16 28 27 15 3 2 14 26 25 13 0 1 12 24 30 18 6 31 7 8 32 33 9 10 22 34 35 23 11 41 40 39 38 37 36>;
-            quick-tap-ms = <180>;
+            quick-tap-ms = <200>;
+        };
+    };
+
+    macros {
+        tab_swap_up: tab_swap_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp RCTRL>,
+                <&macro_press>,
+                <&kp PAGE_UP>,
+                <&macro_release>,
+                <&kp RCTRL>;
+
+            label = "TAB_SWAP_UP";
+        };
+
+        tap_swap_down: tap_swap_down {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp RCTRL>,
+                <&macro_tap>,
+                <&kp PAGE_DOWN>,
+                <&macro_release>,
+                <&kp RCTRL>;
+
+            label = "TAP_SWAP_DOWN";
+        };
+
+        increament_window: increament_window {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_SHIFT &kp RCTRL &kp RIGHT_ALT>,
+                <&macro_press>,
+                <&kp LS(F)>,
+                <&macro_release>,
+                <&kp LEFT_SHIFT &kp RCTRL &kp RIGHT_ALT>;
+
+            label = "INCREAMENT_WINDOW";
+        };
+
+        decrement_window: decrement_window {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_SHIFT &kp RCTRL &kp RIGHT_ALT>,
+                <&macro_tap>,
+                <&kp E>,
+                <&macro_release>,
+                <&kp LEFT_SHIFT &kp RCTRL &kp RIGHT_ALT>;
+
+            label = "DECREMENT_WINDOW";
+        };
+
+        change_language: change_language {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_WIN>,
+                <&macro_tap>,
+                <&kp NUMBER_1>,
+                <&macro_release>,
+                <&kp LEFT_GUI>;
+
+            label = "CHANGE_LANGUAGE";
+        };
+
+        screenshot: screenshot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_WIN>,
+                <&macro_tap>,
+                <&kp NUMBER_2>,
+                <&macro_release>,
+                <&kp LEFT_GUI>;
+
+            label = "SCREENSHOT";
         };
     };
 
@@ -64,16 +150,16 @@
 
         NUM {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans         &kp N7        &kp N8  &kp N9  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans         &kp N4        &kp N5  &kp N6  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans         &kp N1        &kp N2  &kp N3  &trans  &trans
-                        &trans  &trans  &trans    &kp BACKSPACE  &kp NUMBER_0  &trans
+&change_language  &screenshot  &decrement_window  &increament_window  &trans  &trans    &trans         &kp N7        &kp N8  &kp N9  &trans  &trans
+&trans            &trans       &tab_swap_up       &tap_swap_down      &trans  &trans    &trans         &kp N4        &kp N5  &kp N6  &trans  &trans
+&trans            &trans       &trans             &trans              &trans  &trans    &trans         &kp N1        &kp N2  &kp N3  &trans  &trans
+                                                  &trans              &trans  &trans    &kp BACKSPACE  &kp NUMBER_0  &trans
             >;
         };
 
         SYM_LEFT {
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp A     &kp EXCLAMATION       &kp AT          &kp HASH          &kp DOLLAR        &kp PERCENT  &kp AMPERSAND
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp Q     &kp EXCLAMATION       &kp AT          &kp HASH          &kp DOLLAR        &kp PERCENT  &kp AMPERSAND
 &trans  &trans  &trans  &trans  &trans  &trans    &kp EQUAL             &kp PIPE        &kp UNDER         &kp BACKSLASH     &kp TILDE    &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &kp MINUS             &kp ASTERISK    &kp LESS_THAN     &kp GREATER_THAN  &kp FSLH     &trans
                         &trans  &trans  &trans    &kp LEFT_PARENTHESIS  &kp LEFT_BRACE  &kp LEFT_BRACKET
@@ -81,3 +167,4 @@
         };
     };
 };
+
