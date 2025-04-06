@@ -1,9 +1,8 @@
-# TbK mini Wiresless 
+# TBK mini Wiresless 
 
 - This repo contains the source code for the ZMK module TBK mini wireless. 
 
-
-*Important!: Overall notes as I'm stil building and testing.* 
+- Big shoutout to [https://bastardkb.com/](Bastardkb) to open source the design and files.
 
 ## Building 
 
@@ -23,11 +22,17 @@
 
 *IMPORTANT* 
 Due to laziness, the build script does not handle being sourced from different locations in the filesystem. Please source the script from the repository root folder as shown in `step 2`.
+Also the local build is not a replacment for the CI build, just a quick hack to make interations a bit faster, when exeperimentating. 
+
+## Missing 
+- Haven't added support for ZMK Studio. I might do it. 
 
 ## Creating the layout 
 
-https://zmk-physical-layout-converter.streamlit.app/ <- Physical layout converter. Convert from json format, which is used in QMK and maybe others that i'm not aware of. 
+- [https://zmk-physical-layout-converter.streamlit.app/](Physical Layout Convert)
 
-https://nickcoutsos.github.io/keymap-layout-tools/ <- Text rendering tool 
+- [https://nickcoutsos.github.io/keymap-layout-tools/](Keymap editor) 
+    - Simply copy the keymap file, or use webpage github intergration. 
 
-https://nickcoutsos.github.io/keymap-layout-tools/ <- keymap layout editor. Input is json file and current keymap file to further edit. 
+## Build guide 
+- I've collected all the items i bought to assemble this keyboard. See -> [BUILD.md](BUILD)
