@@ -171,7 +171,7 @@
         SYM_LEFT {
             bindings = <
 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &kp EXCLAMATION       &kp AT          &kp HASH          &kp DOLLAR        &kp PERCENT  &kp AMPERSAND
-&trans  &trans  &trans  &trans  &trans  &trans    &kp EQUAL             &kp PIPE        &kp UNDER         &kp BACKSLASH     &kp TILDE    &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &kp EQUAL             &kp PIPE        &kp UNDER         &kp BACKSLASH     &kp TILDE    &kp PLUS
 &trans  &trans  &trans  &trans  &trans  &trans    &kp MINUS             &kp ASTERISK    &kp LESS_THAN     &kp GREATER_THAN  &kp FSLH     &kp BACKSPACE
                         &trans  &trans  &trans    &kp LEFT_PARENTHESIS  &kp LEFT_BRACE  &kp LEFT_BRACKET
             >;
