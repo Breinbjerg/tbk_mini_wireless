@@ -151,6 +151,22 @@
 
             label = "SCREENSHOT";
         };
+
+        switch_right_monitor: switch_right_monitor {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LS(LC(LA(B)))>;
+
+            label = "SWITCH_RIGHT_MONITOR";
+        };
+
+        switch_left_monitor: switch_left_monitor {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LS(LC(LA(K)))>;
+
+            label = "SWITCH_LEFT_MONITOR";
+        };
     };
 
     keymap {
@@ -158,9 +174,9 @@
 
         BASE {
             bindings = <
-&kp ESCAPE      &kp Q    &kp W                    &kp E                 &kp R                      &kp T    &kp Y      &kp U                        &kp I                  &kp O                      &kp P     &trans
+&kp ESCAPE      &kp Q    &kp W                    &kp E                 &kp R                      &kp T    &kp Y      &kp U                        &kp I                  &kp O                      &kp P     &switch_right_monitor
 &kp TAB         &lt 2 A  &hm_mod_left LEFT_ALT S  &hm_mod_left LCTRL D  &hm_mod_left LEFT_SHIFT F  &kp G    &kp H      &hm_mod_right RIGHT_SHIFT J  &hm_mod_right RCTRL K  &hm_mod_right RIGHT_ALT L  &kp SEMI  &kp APOS
-&kp LEFT_SHIFT  &kp Z    &kp X                    &kp C                 &kp V                      &kp B    &kp N      &kp M                        &kp COMMA              &kp DOT                    &kp FSLH  &trans
+&kp LEFT_SHIFT  &kp Z    &kp X                    &kp C                 &kp V                      &kp B    &kp N      &kp M                        &kp COMMA              &kp DOT                    &kp FSLH  &switch_left_monitor
                                                   &kp LEFT_WIN          &kp SPACE                  &mo 1    &kp ENTER  &kp BACKSPACE                &lt 3 RCTRL
             >;
         };
